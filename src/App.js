@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-// 🚨 여기에  로드밸런서 주소를 넣으세요! (http:// 필수, 끝에 /api 빼고)
+// 🚨  로드밸런서 주소 (http:// 필수, 끝에 /api 빼고)
 const API_URL = "http://a1174-prod-alb-1539031625.us-east-1.elb.amazonaws.com"; 
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div style={{ padding: "50px", fontFamily: "Arial" }}>
-      <h1>☁️ Cloud Infra Guestbook</h1>
+      <h1>☁️ CI/CD ver. Cloud Infra Guestbook</h1>
       
       <div style={{ padding: "20px", background: "#f0f0f0", borderRadius: "10px" }}>
         <h3>Backend Status:</h3>
