@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18  # 혹은 사용 중인 버전 (16, 18, 20 등)
+    commands:
+      - echo Installing dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - npm run build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Deploying to S3...
+      # 1. S3에 업로드 (기존 파일 삭제하고 덮어쓰기)
+      # 🚨 아래 'your-s3-bucket-name'을 본인 버킷 이름으로 수정하세요!
+      - aws s3 sync build/ s3://a1174-prod-frontend --delete
+      
+      - echo Invalidating CloudFront cache...
+      # 2. CloudFront 캐시 삭제 (사용자가 즉시 새 버전을 보도록)
+      # 🚨 아래 'your-distribution-id'를 본인 CloudFront ID로 수정하세요!
+      - aws cloudfront create-invalidation --distribution-id E33WGEISDPLXIY --paths "/*"
