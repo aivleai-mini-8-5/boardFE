@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div style={{ padding: "50px", fontFamily: "Arial" }}>
-      <h1>☁️ CI/CD ver. Cloud Infra Guestbook</h1>
+      <h1>☁️ CI/CD + ApproveAdd Ver. Cloud Infra Guestbook</h1>
       
       <div style={{ padding: "20px", background: "#f0f0f0", borderRadius: "10px" }}>
         <h3>Backend Status:</h3>
